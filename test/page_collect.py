@@ -5,7 +5,7 @@ class PageSpider(scrapy.Spider):
     start_urls = ["https://blog.prolific.ac/"]
 
     def parse(self, response):
-        for article_url in response.xpath('.//div[@class="post-title"]/descendant::text()').extract():
+        for article_url in response.css('.post-title a ::attr("href")').extract():
             yield {"article_url": article_url}
            # yield response.follow(article_url, callback=self.parse_article)
 
@@ -16,4 +16,4 @@ class PageSpider(scrapy.Spider):
         yield {"article": "".join(content)}
 
 
-#previously used response.cc('.post-title a ::attr("href")')
+#previously used response.ccs('.post-title a ::attr("href")')
