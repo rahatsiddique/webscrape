@@ -14,3 +14,6 @@ class PageSpider(scrapy.Spider):
     def parse_article(self, response):
         content = response.css("h1::text").extract()
         yield {"article": "".join(content)}
+
+
+#in the command line write 'scrapy crawl page' because it is the name attribute
