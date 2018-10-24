@@ -1,7 +1,7 @@
 import scrapy
 
-class PageSpider(scrapy.Spider):
-    name = "page"
+class MultiPageSpider(scrapy.Spider):
+    name = "multi_page"
     start_urls = ["https://blog.prolific.ac/"]
 
     def parse(self, response):
