@@ -8,11 +8,11 @@ import csv
 
 class SinglerunPipeline(object):
     def process_item(self, item, spider):
-        self.numberwriter.writerow([item["article"]])
+        self.numberwriter.writerow([item["article"]])|''
         return item
 
     def open_spider(self,spider):
-        self.file= open('file1.csv', 'w', encoding = "utf-16")
+        self.file= open('file2.csv', 'w', encoding = "utf-16")
         self.numberwriter = csv.writer(self.file, dialect="excel-tab")
         self.numberwriter.writerow(["article titles", "author", "date"])
 
